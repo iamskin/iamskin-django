@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+<head>
+
+  <div class="menu">
+    <title>愛美膚iamSkin</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.segmentfault.com/r-95fcc0d4/favicon.ico">
+    </link>
+  </div>
+  
+</head>
+
+
+<body>
+  <div class="vertical-blank2"></div>
+  <div class="gray-full-line"></div>
+  <div>
+    {% load static %}
+    <img class=pre-image style src="{% static 'image/pre.png' %}">
+  </div>
+  <div class="gray-full-line"></div>
+
+  <b>
+    <h1 class="main-title" style="text-decoration:underline">AI皮膚檢測工具</h1>
+    <h3>精準醫療的關鍵在於預防，愛美膚旨在透過AI人工智慧與醫療的跨域結合，提供創新且方便使用的醫療服務，從被動接受治療到主動預防疾病，以加強民眾之自主健康管理。</h3>
+    <p class="warning">*注意事項：此服務僅作為風險之初步判斷，以達到適時時預防之功能，如需更詳細的檢查，請務必尋求專業醫療單位。</p>
+  </b>
+
+  <div class="image-wrap">
+    <div class="image-col">
+      {% load static %}
+      <h3><img class=icon src="{% static 'image/skin.png' %}"></a></h3>
+
+      <div class="image-title">膚質檢測-SkinType</div>
+      <br>
+      <div class="gray-line"></div>
+      <div class="image-function">
+        <p>運用人工智慧評估皮膚膚質，<br>取得膚質類型結果圖，<br>以及皮膚照護衛教資訊。</p>
+      </div>
+      
+      <button class="analysis" type="submit" onclick="location.href='{% url 'skin-type' %}'">點擊分析膚質</button> 
+    </div>
+
+    <div class="image-col">
+      {% load static %}
+      <h3><img class=icon src="{% static 'image/nail.png' %}"></a></h3>
+
+      <div class="image-title">指甲檢測-NailTest</div>
+      <br>
+      <div class="gray-line"></div>
+      <div class="image-function">
+        <p>運用人工智慧評估指甲異常風險，<br>取得指甲異常風險結果圖，<br>以及指甲照護衛教資訊。</p>
+      </div>
+
+      <button class="analysis" type="submit" onclick="location.href='{% url 'nail-test' %}'">點擊分析指甲</button>
+    </div>
+    
+    <div class="image-col">
+      {% load static %}
+      <h3><img class=icon src="{% static 'image/acne.png' %}"></a></h3>
+
+      <div class="image-title">痘痘檢測-AcneTest</div>
+      <br>
+      <div class="gray-line"></div>
+      <div class="image-function">
+        <p>運用人工智慧評估痘痘嚴重程度，<br>取得痘痘嚴重程度結果圖，<br>以及痘痘照護衛教資訊。</p>
+      </div>
+
+      <button class="analysis" type="submit" onclick="location.href='{% url 'acne-test' %}'">點擊分析痘痘</button>
+    </div>
+  </div>
+  
+</body>
+
+{% endblock %}
