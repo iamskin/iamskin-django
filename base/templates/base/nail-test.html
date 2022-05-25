@@ -9,8 +9,42 @@
   <div class="vertical-blank2"></div>
   <div class="gray-full-line"></div>
   <h1 class="main-title" style="text-decoration:underline;">指甲檢測工具</h1>
-  <h3>上傳圖片來檢測您的指甲異常風險。</h3>
-  <p class="warning">※上傳的圖片不會被保存</p>
+  <h3>透過影像分析來檢測您的指甲異常風險。</h3>
+
+  <dialog id="infoModal">
+    <h5>使用說明</h5>
+    <p>照片要確實含有您的「指甲」且盡量有充足光源，並注意不要「失焦」，否則判讀結果不具任何意義。</p>
+    <h5>照片範例</h5>
+    <p>請參考下方範例圖片來上傳「指甲圖片，即可得到結果。</p>
+    {% load static %}
+    <img src="{% static 'image/nail-example.png' %}" style="width:90%; vertical-align:text-top;">
+  
+    <div>
+      <p class="warning">※上傳的圖片不會被保存。</p>
+      <button id="close">close</button>
+    </div>
+  </dialog>
+  
+  <div class="example">
+    <div>
+      <p><b>➭點擊查看如何使用：</b></p>
+    </div>
+    <div>
+      {% load static %}
+      <button id="show"><img src="{% static 'image/question-mark.png' %}" style="height:23px;"></button>
+    </div>
+  </div>
+  <script>
+    let btn = document.querySelector("#show");
+    let infoModal = document.querySelector("#infoModal");
+    let close = document.querySelector("#close");
+    btn.addEventListener("click", function () {
+      infoModal.showModal();
+    })
+    close.addEventListener("click", function () {
+      infoModal.close();
+    })
+  </script>
   <!-- <h4 style="color: #6B5876">➩另有即時偵測功能，點此前往：<a style="color: #6B5876" href="/">指甲即時偵測</a></h4> -->
 
   <form method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 30px; float: left;">
@@ -32,9 +66,9 @@
   
   <div class="report" style="float:left; width:100% ">
     <div style="float:left; width:100%">
-      <div style="border:1px  white;width:30%; float:left">
+      <div style="border:1px  #e7e7e7;width:30%; float:left">
         <div>
-          <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭Your Image:</b>
+          <b style="color: #778FA8;; font-size: larger; font-weight: bolder;">➭Your Image:</b>
         </div>
         <div>
           <img src="{{ image_uri }}" alt="Uploaded image"
@@ -44,9 +78,9 @@
   
       <div style="border:1px  whitesmoke solid;width:9.5%; float:left;"></div>
   
-      <div style="border:1px white;width:60%; float:left">
+      <div style="border:1px #e7e7e7;width:60%; float:left">
         <div>
-          <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭Result:</b>
+          <b style="color: #778FA8;; font-size: larger; font-weight: bolder;">➭Result:</b>
         </div>
         <div>
           {% load static %}
@@ -62,11 +96,11 @@
     </div>
   
     <div class="vertical-blank4"></div>
-    <div class="white-full-line"></div>
+    <div class="gray-full-line"></div>
     <div style="float:left; width:95%">
         <div style="float:left">
           <div>
-            <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭More Information:</b>
+            <b style="color: #778FA8;; font-size: larger; font-weight: bolder;">➭More Information:</b>
           </div>
           <div class="vertical-blank4"></div>
           <div>
@@ -105,9 +139,9 @@
           </div>
           <div class="vertical-blank4"></div>
           <div>
-            <h4 style="color: #6B5876">
+            <h4 style="color: #778FA8;">
               ➭參考連結:
-              <a style="color: #6B5876"
+              <a style="color: #778FA8;"
                 href="https://health.udn.com/health/story/9830/5952337">https://health.udn.com/health/story/9830/5952337</a>
             </h4>
           </div>

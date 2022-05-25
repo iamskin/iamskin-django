@@ -11,8 +11,46 @@
   <div class="vertical-blank2"></div>
   <div class="gray-full-line"></div>
   <h1 class="main-title" style="text-decoration:underline;">膚質檢測工具</h1>
-  <h3>上傳圖片來檢測您的膚質為乾性肌、油肌、敏感肌。</h3>
-  <p class="warning">※上傳的圖片不會被保存</p>
+  <div id="how-to-use" >
+    <h3>透過影像分析來檢測您的膚質為乾性肌、油肌、敏感肌。</h3>
+    
+  </div>
+ 
+  <dialog id="infoModal">
+    <h5>使用說明</h5></li>
+    <p>照片要確實含有您的「肌膚」且盡量有充足光源，並注意不要「失焦」，否則判讀結果不具任何意義。</p>
+    <h5>照片範例</h5>
+    <p>請參考下方範例圖片來上傳「肌膚」圖片，即可得到結果。</p>
+    {% load static %}
+    <img src="{% static 'image/skin-example.png' %}"  style="width:90%; vertical-align:text-top;">
+    <div>
+      <p class="warning">※上傳的圖片不會被保存。</p>
+      <button id="close">close</button>
+    </div>
+   
+  </dialog>
+  
+  <div class="example">
+    <div>
+      <p><b>➭點擊查看如何使用：</b></p>
+    </div>
+    <div>
+      {% load static %}
+      <button id="show"><img src="{% static 'image/question-mark.png' %}" style="height:23px;"></button>
+    </div>
+  </div>
+  <script>
+    let btn = document.querySelector("#show");
+    let infoModal = document.querySelector("#infoModal");
+    let close = document.querySelector("#close");
+    btn.addEventListener("click", function () {
+      infoModal.showModal();
+    })
+    close.addEventListener("click", function () {
+      infoModal.close();
+    })
+  </script>
+ 
   <!-- <h4 style="color: #6B5876">➩另有即時偵測功能，點此前往：<a style="color: #6B5876" href="/">膚質即時偵測</a></h4> -->
 
   
@@ -22,7 +60,6 @@
     <button type="submit" id="btnUpload" class="btn btn-primary" style="float: right" >Upload</button>
   </form>
 
-  
   {% if image_uri is not None %}
   {% if predicted_label is not None %}
   <div class="result-normal" role="alert">
@@ -34,12 +71,11 @@
   </div>
   {% endif %}
   
-
   <div class="report" style="float:left; width:100% "> 
       <div style="float:left; width:100%">
-        <div style="border:1px  white;width:30%; float:left">
+        <div style="border:1px  #e7e7e7;width:30%; float:left">
           <div>
-            <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭Your Image:</b>
+            <b style="color: #778FA8; font-size: larger; font-weight: bolder;">➭Your Image:</b>
           </div>
           <div>
             <img src="{{ image_uri }}" alt="Uploaded image"
@@ -49,9 +85,9 @@
       
         <div style="border:1px  whitesmoke solid;width:9.5%; float:left;"></div>
       
-        <div style="border:1px white;width:60%; float:left">
+        <div style="border:1px #e7e7e7;width:60%; float:left">
           <div>
-            <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭Result:</b>
+            <b style="color: #778FA8; font-size: larger; font-weight: bolder;">➭Result:</b>
           </div>
           <div>
             <img src="{{ img }}" alt="Uploaded image" style="max-height: 400px;max-width:100%; vertical-align:text-top;">
@@ -60,12 +96,12 @@
       </div>
       
       <div class="vertical-blank4"></div>
-      <div class="white-full-line"></div>
+      <div class="gray-full-line"></div>
       <div style="float:left; width:95%">
         <div style="float:left;">
           <div style="float:left">
             <div>
-              <b style="color: #6B5876; font-size: larger; font-weight: bolder;">➭More Information:</b>
+              <b style="color: #778FA8;; font-size: larger; font-weight: bolder;">➭More Information:</b>
             </div>
             <div class="vertical-blank4"></div>
             <div>
@@ -97,9 +133,9 @@
           </div>          
           </h4>
           <div class="vertical-blank4"></div>
-          <h4 style="color: #6B5876">
+          <h4 style="color: #778FA8;">
             ➭參考連結:
-            <a style="color: #6B5876" href="https://www.beauty321.com/post/44587">https://www.beauty321.com/post/44587</a>
+            <a style="color: #778FA8;" href="https://www.beauty321.com/post/44587">https://www.beauty321.com/post/44587</a>
           </h4>
         </div>
       </div>
