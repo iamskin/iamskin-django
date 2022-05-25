@@ -13,6 +13,11 @@ def home(request):
     return render(request, 'base/home.html', context)
 
 
+def use(request):
+    context = {}
+    return render(request, 'base/use.html', context)
+
+
 def about(request):
     context = {}
     return render(request, 'base/about.html', context)
@@ -140,7 +145,7 @@ def acnetest(request):
         'img': imd,
     }
     return render(request, 'base/acne-test.html', context)
-# Create your views here.
+
 
 # Create your views here.
 
